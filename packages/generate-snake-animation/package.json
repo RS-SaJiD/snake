@@ -1,0 +1,19 @@
+{
+  "name": "generate-snake-animation",
+  "version": "1.0.0",
+  "bin": {
+    "snake": "./cli.ts"
+  },
+  "scripts": {
+    "build": "bash build.sh"
+  },
+  "dependencies": {
+    "@snake/forgejo-user-contribution": "1.0.0",
+    "@snake/gitlab-user-contribution": "1.0.0",
+    "@snake/gif-creator": "1.0.0",
+    "@snake/github-user-contribution": "1.0.0",
+    "@snake/solver": "1.0.0",
+    "@snake/svg-creator": "1.0.0",
+    "@snake/types": "1.0.0"
+  }
+}

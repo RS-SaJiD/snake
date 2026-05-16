@@ -1,0 +1,4 @@
+# This is a Bun lockfile
+# https://bun.sh/docs/install/lockfile
+
+version = 0
