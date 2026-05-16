@@ -55,6 +55,49 @@ export const basePalettes = {
     colorDots: ["#2a2a36", "#284779", "#2f68b4", "#428fdc", "#9dc7f1"],
     colorSnake: "#9dc7f1",
   },
+// My (RS-SaJiD)'s custom palettes
+    "red-github-dark": { 
+    colorBackground: "#0c1116",
+    colorDotBorder: "#1b1f230a",
+    colorEmpty: "#161b22",
+    colorDots: ["#161b22", "#310101", "#450303", "#6d0f0f", "#c60000"],
+    colorSnake: "#e6edf3",
+  },
+  "red-github-light": {
+    colorBackground: "#ffffff",
+    colorDotBorder: "#1b1f230a",
+    colorDots: ["#ebedf0", "#e99b9b", "#c44040", "#a13030", "#6e2121"],
+    colorEmpty: "#ebedf0",
+    colorSnake: "#2f363d",
+  },
+  "hallowen-dark": {
+    colorBackground: "#0c1116",
+    colorDotBorder: "#1b1f230a",
+    colorEmpty: "#161b22",
+    colorDots: ["#161b22", "#631c03", "#bd561d", "#fa7a18", "#fddf68"],
+    colorSnake: "#bc8cff",
+  },
+  "hallowen-light": {
+    colorBackground: "#ffffff",
+    colorDotBorder: "#1b1f230a",
+    colorDots: ["#ebedf0", "#ffee4a", "#ffc501", "#fe9600", "#03001c"],
+    colorEmpty: "#ebedf0",
+    colorSnake: "#03001c",
+  },
+  "winter-dark": {
+    colorBackground: "#0c1116",
+    colorDotBorder: "#1b1f230a",
+    colorEmpty: "#161b22",
+    colorDots: ["#161b22", "#0a3069", "#0969da", "#54aeff", "#b6e3ff"],
+    colorSnake: "#7ee787",
+  },
+  "winter-light": {
+    colorBackground: "#ffffff",
+    colorDotBorder: "#1b1f230a",
+    colorDots: ["#ebedf0", "#b6e3ff", "#54aeff", "#0969da", "#0a3069"],
+    colorEmpty: "#ebedf0",
+    colorSnake: "#fd8c00",
+  },
 };
 
 // aliases
