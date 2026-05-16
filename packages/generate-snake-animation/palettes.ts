@@ -55,8 +55,7 @@ export const basePalettes = {
     colorDots: ["#2a2a36", "#284779", "#2f68b4", "#428fdc", "#9dc7f1"],
     colorSnake: "#9dc7f1",
   },
-// My (RS-SaJiD)'s custom palettes
-    "red-github-dark": { 
+  "red-github-dark": {
     colorBackground: "#0c1116",
     colorDotBorder: "#1b1f230a",
     colorEmpty: "#161b22",
