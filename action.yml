@@ -42,7 +42,7 @@ runs:
     - name: resolve palette colors
       shell: bash
       run: |
-        COLORS=$(bun "${{ github.action_path }}/palettes.ts" "${{ inputs.palette }}")
+        COLORS=$(bun "${{ github.action_path }}/resolve.ts" "${{ inputs.palette }}")
 
         while IFS= read -r line; do
           key="${line%%=*}"
@@ -65,9 +65,7 @@ runs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
 
-
-# branding 
-
+# branding
 branding:
   icon: 'wind'
   color: 'green'
