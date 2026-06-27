@@ -64,3 +64,11 @@ runs:
         color_background: ${{ env.color_background }}
       env:
         GITHUB_TOKEN: ${{ github.token }}
+
+
+# branding 
+
+branding:
+  icon: 'aperture'
+  color: 'green'
+  
