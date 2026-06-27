@@ -1,0 +1,66 @@
+name: "snake"
+description: "Generates a snake game animation from a GitHub user's contribution grid"
+author: "RS-SaJiD"
+
+inputs:
+  github_user_name:
+    description: "GitHub username to generate the animation for"
+    required: true
+  outputs:
+    description: "Output file path(s). One per line."
+    required: true
+  palette:
+    description: |
+      Color palette to use. Available palettes:
+        Original  : github-light, github-dark, gitlab-light, gitlab-dark,
+                    forgejo-light, forgejo-dark, codeberg-light, codeberg-dark
+        RS-SaJiD  : red-github-light, red-github-dark,
+                    halloween-light, halloween-dark,
+                    winter-light, winter-dark,
+                    one-dark-pro, synthwave,
+                    dracula, monokai, nord, tokyo-night, catppuccin
+    required: false
+    default: "github-dark"
+  color_snake:
+    description: "Override snake color (hex or css color). Overrides palette."
+    required: false
+  color_dots:
+    description: "Override dot colors (5 comma-separated hex values). Overrides palette."
+    required: false
+  color_background:
+    description: "Override background color. Overrides palette."
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: setup bun
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: latest
+
+    - name: resolve palette colors
+      shell: bash
+      run: |
+        COLORS=$(bun "${{ github.action_path }}/palettes.ts" "${{ inputs.palette }}")
+
+        while IFS= read -r line; do
+          key="${line%%=*}"
+          val="${line#*=}"
+          echo "$key=$val" >> $GITHUB_ENV
+        done <<< "$COLORS"
+
+        [ -n "${{ inputs.color_dots }}" ]       && echo "color_dots=${{ inputs.color_dots }}" >> $GITHUB_ENV
+        [ -n "${{ inputs.color_snake }}" ]      && echo "color_snake=${{ inputs.color_snake }}" >> $GITHUB_ENV
+        [ -n "${{ inputs.color_background }}" ] && echo "color_background=${{ inputs.color_background }}" >> $GITHUB_ENV
+
+    - name: generate snake animation
+      uses: Platane/snk/svg-only@v3
+      with:
+        github_user_name: ${{ inputs.github_user_name }}
+        outputs: ${{ inputs.outputs }}
+        color_dots: ${{ env.color_dots }}
+        color_snake: ${{ env.color_snake }}
+        color_background: ${{ env.color_background }}
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
