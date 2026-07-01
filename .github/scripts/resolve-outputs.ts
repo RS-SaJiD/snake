@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-/*
+ /*
  Expands `?palette=<name>` in an `outputs` string into explicit
  color_background / color_dots / color_snake / color_dot_border params,
  using the palettes bundled with this action (see ../../palettes.ts,
@@ -17,6 +17,13 @@ const lines = raw
   .split("\n")
   .map((line) => line.trim())
   .filter(Boolean);
+
+if (lines.length === 0) {
+  throw new Error(
+    "The `outputs` input was empty when it reached this action. " +
+      "Check that the workflow calling this action passes an `outputs:` value.",
+  );
+}
 
 const resolved = lines.map((line) => {
   const [filePart, queryPart] = line.split("?");
