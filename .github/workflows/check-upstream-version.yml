@@ -1,0 +1,71 @@
+name: check platane/snk major version
+
+on:
+  schedule:
+    - cron: "0 6 1 * *" # 1st of every month, 06:00 UTC
+
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: compare latest Platane/snk release with pinned major version
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            const PINNED_MAJOR = 3; // matches `uses: Platane/snk@v3` in action.yml
+
+            const { data: release } = await github.rest.repos.getLatestRelease({
+              owner: "Platane",
+              repo: "snk",
+            });
+
+            const tag = release.tag_name; // e.g. "v3.3.0"
+            const match = tag.match(/^v(\d+)\./);
+            if (!match) {
+              core.warning(`Could not parse major version from tag "${tag}"`);
+              return;
+            }
+            const latestMajor = parseInt(match[1], 10);
+
+            core.info(`Latest Platane/snk release: ${tag} (major ${latestMajor}), pinned major: ${PINNED_MAJOR}`);
+
+            if (latestMajor <= PINNED_MAJOR) {
+              core.info("Nothing to do, still on the latest major version.");
+              return;
+            }
+
+            // avoid opening duplicate issues
+            const title = `Platane/snk v${latestMajor} is out — action.yml is still pinned to v${PINNED_MAJOR}`;
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: "upstream-update",
+            });
+            if (existing.data.some((i) => i.title === title)) {
+              core.info("Issue already open, skipping.");
+              return;
+            }
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              labels: ["upstream-update"],
+              body: [
+                `Platane/snk released **${tag}**, a new major version.`,
+                "",
+                `This repo's \`action.yml\` currently calls \`uses: Platane/snk@v${PINNED_MAJOR}\`.`,
+                "Major versions can include breaking changes, so this needs a manual look before bumping.",
+                "",
+                `- Release notes: https://github.com/Platane/snk/releases/tag/${tag}`,
+                `- Compare: https://github.com/Platane/snk/compare/v${PINNED_MAJOR}.0.0...${tag}`,
+                "",
+                "Once reviewed, update the version in `action.yml` and update `PINNED_MAJOR` in this workflow.",
+              ].join("\n"),
+            });
