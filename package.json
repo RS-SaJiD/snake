@@ -1,0 +1,13 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TypeScript wrapper around Platane/snk adding RS-SaJiD's named custom palettes.",
+  "repository": "github:RS-SaJiD/snake",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}
