@@ -1,0 +1,42 @@
+name: "snake (RS-SaJiD palettes)"
+description: "Wraps Platane/snk and adds named custom color palettes (written in TypeScript) without forking or rebuilding Platane's own action."
+author: "RS-SaJiD"
+
+inputs:
+  github_user_name:
+    description: "github user name"
+    required: true
+  github_token:
+    description: "github token used to fetch the contribution calendar. Defaults to the action token if empty."
+    required: false
+    default: ${{ github.token }}
+  outputs:
+    description: |
+      List of files to generate, one per line.
+      Each line can use `?palette=<name>` where <name> is either
+      one of Platane's built-in palettes (github, github-dark, github-light, ...)
+      OR one of RS-SaJiD's custom palettes (see src/palettes.ts).
+      Other query options (color_snake, color_dots, ...) still work as-is
+      and always take priority over a named palette.
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: resolve custom palettes (TypeScript)
+      id: resolve
+      shell: bash
+      env:
+        INPUT_OUTPUTS: ${{ inputs.outputs }}
+      run: node "${{ github.action_path }}/dist/cli.js"
+
+    - name: generate snake animation (Platane/snk)
+      uses: Platane/snk@v3
+      with:
+        github_user_name: ${{ inputs.github_user_name }}
+        github_token: ${{ inputs.github_token }}
+        outputs: ${{ steps.resolve.outputs.resolved_outputs }}
+
+branding:
+  icon: 'grid'
+  color: 'green'
