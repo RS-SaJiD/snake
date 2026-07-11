@@ -127,12 +127,19 @@ export const palettes: Record<string, Palette> = {
     colorDots: ["#0d0221", "#ff003c", "#00fff9", "#f706cf", "#fee801"],
     colorSnake: "#05d9e8",
   },
-  sakura: {
+  "sakura-light": {
     colorBackground: "#fff5f7",
     colorDotBorder: "#1b1f230a",
     colorEmpty: "#fff5f7",
     colorDots: ["#fff5f7", "#ffd1dc", "#ffb3c6", "#ff8fab", "#ff4d6d"],
     colorSnake: "#6b4226",
+  },
+  "sakura-dark": {
+    colorBackground: "#1a0e12",
+    colorDotBorder: "#ffffff10",
+    colorEmpty: "#1a0e12",
+    colorDots: ["#1a0e12", "#5c2a3a", "#a13d5c", "#d94f7a", "#ff8fab"],
+    colorSnake: "#6fcf97",
   },
   "black-and-white-dark": {
     colorBackground: "#141414",
