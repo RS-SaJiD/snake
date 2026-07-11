@@ -1,8 +1,6 @@
 name: generate all palette svgs (light + dark)
 
 on:
-
-
   workflow_dispatch:
 
 #  push:
@@ -20,8 +18,7 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-dark.svg?palette=github-dark
-            dist/github-light.svg?palette=github-light
+            # AUTO-GENERATED:START (do not edit by hand, run "update preview outputs" workflow instead)
             dist/red-github-dark.svg?palette=red-github-dark
             dist/red-github-light.svg?palette=red-github-light
             dist/halloween-dark.svg?palette=halloween-dark
@@ -35,12 +32,23 @@ jobs:
             dist/nord.svg?palette=nord
             dist/tokyo-night.svg?palette=tokyo-night
             dist/catppuccin.svg?palette=catppuccin
+            dist/gruvbox.svg?palette=gruvbox
+            dist/rose-pine.svg?palette=rose-pine
+            dist/solarized-dark.svg?palette=solarized-dark
+            dist/cyberpunk.svg?palette=cyberpunk
+            dist/sakura.svg?palette=sakura
+            dist/black-and-white-dark.svg?palette=black-and-white-dark
+            dist/black-and-white-light.svg?palette=black-and-white-light
+            dist/neon-glowing-purple.svg?palette=neon-glowing-purple
+            dist/github-dark.svg?palette=github-dark
+            dist/github-light.svg?palette=github-light
             dist/gitlab-dark.svg?palette=gitlab-dark
             dist/gitlab-light.svg?palette=gitlab-light
             dist/forgejo-dark.svg?palette=forgejo-dark
             dist/forgejo-light.svg?palette=forgejo-light
             dist/codeberg-dark.svg?palette=codeberg-dark
             dist/codeberg-light.svg?palette=codeberg-light
+            # AUTO-GENERATED:END
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
