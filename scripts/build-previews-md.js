@@ -1,3 +1,6 @@
+// Builds dist/PREVIEWS.md — a README-style gallery of every palette,
+// linking to https://raw.githubusercontent.com/RS-SaJiD/snake/snake-assets/...
+
 const fs = require("fs");
 const path = require("path");
 
@@ -17,7 +20,7 @@ const img = (name) => `
 `;
 
 function pairBlock(base, dark, light) {
-  return `#### ${base}\n\n\n${img(dark)}\n\n\n\n${img(light)}\n\n`;
+  return `#### ${dark}\n\n\n${img(dark)}\n\n\n#### ${light}\n\n\n${img(light)}\n\n`;
 }
 
 function singleBlock(name) {
@@ -45,8 +48,9 @@ function main() {
 
   let md = "";
   md += "### Custom palettes (by me)\n\n";
-  md += "#### github <-- (Platane's official, not mine)\n\n\n";
-  md += `${img("github-dark")}\n\n\n\n`;
+  md += "#### github-dark <-- (Platane's official, not mine)\n\n\n";
+  md += `${img("github-dark")}\n\n\n`;
+  md += "#### github-light <-- (Platane's official, not mine)\n\n\n";
   md += `${img("github-light")}\n\n\n`;
 
   for (const { base, dark, light } of pairs) {
