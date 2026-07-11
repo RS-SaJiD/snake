@@ -1,4 +1,5 @@
 # snake ⚕️
+A TypeScript wrapper around [Platane/snk](https://github.com/Platane/snk) that adds named custom color palettes — no forking, no Docker rebuild. Just pass `?palette=<name>` in your `outputs` and get a themed contribution snake.
 
 ## Snake Palette Gallery 🎨
 
