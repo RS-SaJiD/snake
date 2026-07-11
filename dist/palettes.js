@@ -29,7 +29,7 @@ exports.palettes = {
         colorDotBorder: "#1b1f230a",
         colorEmpty: "#ebedf0",
         colorDots: ["#ebedf0", "#ffee4a", "#ffc501", "#fe9600", "#03001c"],
-        colorSnake: "#03001c",
+        colorSnake: "6b2fa8",
     },
     "winter-dark": {
         colorBackground: "#0c1116",
@@ -127,7 +127,7 @@ exports.palettes = {
         colorDotBorder: "#1b1f230a",
         colorEmpty: "#fff5f7",
         colorDots: ["#fff5f7", "#ffd1dc", "#ffb3c6", "#ff8fab", "#ff4d6d"],
-        colorSnake: "#6b4226",
+        colorSnake: "#2e7d32",
     },
     "sakura-dark": {
         colorBackground: "#1a0e12",
