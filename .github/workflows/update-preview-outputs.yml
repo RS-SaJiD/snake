@@ -1,0 +1,28 @@
+name: update preview outputs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: regenerate outputs block from palettes.ts
+        run: node scripts/update-preview-outputs.js
+
+      - name: commit changes (if any)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/generate-all-palette-previews.yml
+          git diff --cached --quiet || git commit -m "🔄 sync preview workflow outputs with palettes.ts"
+          git push
