@@ -1,6 +1,48 @@
 # snake ⚕️
 A TypeScript wrapper around [Platane/snk](https://github.com/Platane/snk) that adds named custom color palettes — no forking, no Docker rebuild. Just pass `?palette=<name>` in your `outputs` and get a themed contribution snake.
 
+## How to use ❔
+
+Add this to your workflow file (e.g. `.github/workflows/snake.yml`):
+
+```yaml
+name: generate snake animation
+
+on:
+  schedule:
+    - cron: "0 */24 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: generate snake svg
+        uses: RS-SaJiD/snake@latest
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake.svg?palette=winter-dark
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: push to output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: snake-assets
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+Available palette names are listed in the gallery below. Replace `winter-dark` with any of them.
+
+
+
 ## Snake Palette Gallery 🎨
 
 ### Custom palettes (by me)
