@@ -3,4 +3,5 @@ node_modules/
 # garbages
 palettes.json
 
-pelettes.ts
+Thumbs.db
+Desktop.ini
