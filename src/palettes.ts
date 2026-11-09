@@ -34,7 +34,7 @@ export const palettes: Record<string, Palette> = {
     colorDotBorder: "#1b1f230a",
     colorEmpty: "#ebedf0",
     colorDots: ["#ebedf0", "#ffee4a", "#ffc501", "#fe9600", "#03001c"],
-    colorSnake: "#7a3fc4",
+    colorSnake: "#7a3fc4", // balanced
   },
   "winter-dark": {
     colorBackground: "#0c1116",
