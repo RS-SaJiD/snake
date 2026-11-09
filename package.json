@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "TypeScript wrapper around Platane/snk adding RS-SaJiD's named custom palettes.",
+  "license": "MIT",
   "repository": "github:RS-SaJiD/snake",
   "scripts": {
     "build": "tsc"
