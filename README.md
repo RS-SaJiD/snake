@@ -1,6 +1,8 @@
 # snake ⚕️
 A TypeScript wrapper around [Platane/snk](https://github.com/Platane/snk) that adds named custom color palettes — no forking, no Docker rebuild. Just pass `?palette=<name>` in your `outputs` and get a themed contribution snake.
-
+<!-- // WIP: remaining work to be done tomorrow
+// TODO(tomorrow): finish the remaining palette fixes
+// Done for today, continuing tomorrow -->
 ## How to use ❓
 
 Add this to your workflow file (e.g. `.github/workflows/snake.yml`):
