@@ -141,6 +141,13 @@ export const palettes: Record<string, Palette> = {
     colorDots: ["#002b36", "#268bd2", "#2aa198", "#b58900", "#cb4b16"],
     colorSnake: "#859900",
   },
+  "solarized-light": {
+    colorBackground: "#fdf6e3",
+    colorDotBorder: "#1b1f230a",
+    colorEmpty: "#fdf6e3",
+    colorDots: ["#fdf6e3", "#eee8d5", "#93a1a1", "#657b83", "#586e75"],
+    colorSnake: "#859900",
+  },
   cyberpunk: {
     colorBackground: "#0d0221",
     colorDotBorder: "#ffffff10",
