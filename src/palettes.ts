@@ -127,6 +127,13 @@ export const palettes: Record<string, Palette> = {
     colorDots: ["#191724", "#ebbcba", "#f6c177", "#c4a7e7", "#eb6f92"],
     colorSnake: "#9ccfd8",
   },
+  "rose-pine-dawn": {
+    colorBackground: "#faf4ed",
+    colorDotBorder: "#1b1f230a",
+    colorEmpty: "#faf4ed",
+    colorDots: ["#faf4ed", "#f2e9e1", "#dbbba4", "#b4637a", "#907aa9"],
+    colorSnake: "#286983",
+  },
   "solarized-dark": {
     colorBackground: "#002b36",
     colorDotBorder: "#ffffff10",
