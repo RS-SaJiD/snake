@@ -57,6 +57,13 @@ export const palettes: Record<string, Palette> = {
     colorDots: ["#282c34", "#61afef", "#98c379", "#c678dd", "#56b6c2"],
     colorSnake: "#d19a66",
   },
+  "one-light": {
+    colorBackground: "#fafafa",
+    colorDotBorder: "#1b1f230a",
+    colorEmpty: "#fafafa",
+    colorDots: ["#fafafa", "#c5e4fd", "#9dd1fa", "#61afef", "#0184bc"],
+    colorSnake: "#e45649",
+  },
   synthwave: {
     colorBackground: "#262335",
     colorDotBorder: "#ffffff10",
