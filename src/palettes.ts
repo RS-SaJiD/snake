@@ -120,6 +120,13 @@ export const palettes: Record<string, Palette> = {
     colorDots: ["#1e1e2e", "#313244", "#cba6f7", "#89b4fa", "#94e2d5"],
     colorSnake: "#a6e3a1",
   },
+  "catppuccin-latte": {
+    colorBackground: "#eff1f5",
+    colorDotBorder: "#1b1f2320",
+    colorEmpty: "#eff1f5",
+    colorDots: ["#eff1f5", "#bac2e8", "#8caaee", "#7287fd", "#1e66f5"],
+    colorSnake: "#40a02b",
+  },
   gruvbox: {
     colorBackground: "#282828",
     colorDotBorder: "#ffffff10",
