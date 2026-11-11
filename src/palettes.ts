@@ -134,6 +134,13 @@ export const palettes: Record<string, Palette> = {
     colorDots: ["#282828", "#d79921", "#d65d0e", "#cc241d", "#98971a"],
     colorSnake: "#fabd2f",
   },
+  "gruvbox-light": {
+    colorBackground: "#fbf1c7",
+    colorDotBorder: "#1b1f2320",
+    colorEmpty: "#fbf1c7",
+    colorDots: ["#fbf1c7", "#ebdbb2", "#d79921", "#d65d0e", "#cc241d"],
+    colorSnake: "#98971a",
+  },
   "rose-pine": {
     colorBackground: "#191724",
     colorDotBorder: "#ffffff10",
