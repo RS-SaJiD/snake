@@ -92,6 +92,13 @@ export const palettes: Record<string, Palette> = {
     colorDots: ["#2e3440", "#3b4252", "#4c566a", "#81a1c1", "#88c0d0"],
     colorSnake: "#a3be8c",
   },
+  "nord-light": {
+    colorBackground: "#eceff4",
+    colorDotBorder: "#1b1f2320",
+    colorEmpty: "#eceff4",
+    colorDots: ["#eceff4", "#d8dee9", "#a3bcd4", "#5e81ac", "#2e3440"],
+    colorSnake: "#a3be8c",
+  },
   "tokyo-night": {
     colorBackground: "#1a1b2e",
     colorDotBorder: "#ffffff10",
